@@ -28,7 +28,7 @@ class MetronicAsset extends AssetBundle
       'metronic/js/pages/widgets.js',
     ];
     public $depends = [
-        // 'yii\web\YiiAsset',
-        // 'yii\bootstrap4\BootstrapAsset',
+        'yii\web\YiiAsset',
+        'yii\bootstrap4\BootstrapAsset',
     ];
 }
