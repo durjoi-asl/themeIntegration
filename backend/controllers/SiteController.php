@@ -60,7 +60,6 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $this->layout = 'metronic';
         return $this->render('index');
     }
 
@@ -71,6 +70,7 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
+        $this->layout = 'auth';
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }

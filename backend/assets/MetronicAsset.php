@@ -20,6 +20,7 @@ class MetronicAsset extends AssetBundle
         'metronic/css/themes/layout/header/menu/light.css',
         'metronic/css/themes/layout/brand/dark.css',
         'metronic/css/themes/layout/aside/dark.css',
+        'metronic/css/pages/login/login-1.css',
     ];
     public $js = [
       'metronic/plugins/global/plugins.bundle.js',
@@ -28,6 +29,7 @@ class MetronicAsset extends AssetBundle
       'metronic/plugins/custom/fullcalendar/fullcalendar.bundle.js',
       'metronic/plugins/custom/gmaps/gmaps.js',
       'metronic/js/pages/widgets.js',
+      'metronic/js/pages/custom/login/login-general.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',
