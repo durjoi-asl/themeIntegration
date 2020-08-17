@@ -1,5 +1,7 @@
 <?php
 use yii\helpers\Url;
+use yii\helpers\Html;
+use yii\bootstrap4\ActiveForm;
  ?>
 <div class="login login-1 login-signin-on d-flex flex-column flex-lg-row flex-column-fluid bg-white" id="kt_login">
 				<!--begin::Aside-->
@@ -29,7 +31,8 @@ use yii\helpers\Url;
 						<!--begin::Signin-->
 						<div class="login-form login-signin">
 							<!--begin::Form-->
-							<form class="form fv-plugins-bootstrap fv-plugins-framework" novalidate="novalidate" id="kt_login_signin_form">
+
+							<form method="post" action="<?php echo Url::to('site/login') ?>" class="form fv-plugins-bootstrap fv-plugins-framework" novalidate="novalidate" id="kt_login_signin_form">
 								<!--begin::Title-->
 								<div class="pb-13 pt-lg-0 pt-5">
 									<h3 class="font-weight-bolder text-dark font-size-h4 font-size-h1-lg">Welcome to Metronic</h3>
@@ -54,8 +57,12 @@ use yii\helpers\Url;
 								<!--end::Form group-->
 								<!--begin::Action-->
 								<div class="pb-lg-0 pb-5">
-									<button type="button" id="kt_login_signin_submit" class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mr-3">Sign In</button>
-									<button type="button" class="btn btn-light-primary font-weight-bolder px-8 py-4 my-3 font-size-lg">
+									<!-- <button type="button" id="kt_login_signin_submit" class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mr-3">Sign In</button> -->
+                  <?php echo Html::submitButton('Login', ['class' => 'btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mr-3', 'name' => 'login-button', 'id' => 'login_signin_submit']) ?>
+
+
+
+                  <button type="button" class="btn btn-light-primary font-weight-bolder px-8 py-4 my-3 font-size-lg">
 									<span class="svg-icon svg-icon-md">
 										<!--begin::Svg Icon | path:/metronic/theme/html/demo1/dist/assets/media/svg/social-icons/google.svg-->
 										<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
