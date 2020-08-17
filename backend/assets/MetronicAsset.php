@@ -13,6 +13,7 @@ class MetronicAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
         'metronic/plugins/custom/fullcalendar/fullcalendar.bundle.css',
+        'metronic/plugins/global/plugins.bundle.css',
         'metronic/plugins/custom/prismjs/prismjs.bundle.css',
         'metronic/css/style.bundle.css',
         'metronic/css/themes/layout/header/base/light.css',
@@ -25,6 +26,7 @@ class MetronicAsset extends AssetBundle
       'metronic/plugins/custom/prismjs/prismjs.bundle.js',
       'metronic/js/scripts.bundle.js',
       'metronic/plugins/custom/fullcalendar/fullcalendar.bundle.js',
+      'metronic/plugins/custom/gmaps/gmaps.js',
       'metronic/js/pages/widgets.js',
     ];
     public $depends = [
