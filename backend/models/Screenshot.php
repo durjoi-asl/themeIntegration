@@ -3,6 +3,7 @@
 namespace backend\models;
 
 use Yii;
+use yii\helpers\FileHelper;
 
 /**
  * This is the model class for table "screenshot".
@@ -12,6 +13,7 @@ use Yii;
  */
 class Screenshot extends \yii\db\ActiveRecord
 {
+    public $image;
     /**
      * {@inheritdoc}
      */
@@ -49,5 +51,34 @@ class Screenshot extends \yii\db\ActiveRecord
     public static function find()
     {
         return new ScreenshotQuery(get_called_class());
+    }
+
+    public function save($runValidation = true, $attributeNames = null) {
+
+      $file = Yii::getAlias('@backend/web/storage/screenshot/'.uniqid().'.png');
+
+      $this->img = $file;
+      $saved = parent::save($runValidation, $attributeNames);
+      if(!$saved) {
+        return false;
+      }
+
+      $data = $this->base64ToImage($this->image, $file);
+
+      if(!is_dir(dirname($file))){
+        FileHelper::createDirectory(dirname($file));
+      }
+
+      file_put_contents($file, $data);
+
+      return true;
+    }
+
+    public function base64ToImage($img, $file) {
+      $img = str_replace('data:image/png;base64,', '', $img);
+      $img = str_replace(' ', '+', $img);
+      $data = base64_decode($img);
+
+      return $data;
     }
 }
