@@ -368,6 +368,12 @@
       </div>
       <!--end::Search-->
 
+      <div class="topbar-item" onclick="makeScreenshot();">
+        <div class="btn btn-icon btn-clean btn-lg mr-1">
+          capture
+        </div>
+      </div>
+
       <!--begin::Notifications-->
       <div class="dropdown">
         <!--begin::Toggle-->
