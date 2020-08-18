@@ -1,3 +1,5 @@
+<?php use yii\helpers\Html; ?>
+
 <div id="kt_quick_user" class="offcanvas offcanvas-right p-10">
   <!--begin::Header-->
   <div class="offcanvas-header d-flex align-items-center justify-content-between pb-5">
@@ -21,7 +23,7 @@
       </div>
       <div class="d-flex flex-column">
         <a href="#" class="font-weight-bold font-size-h5 text-dark-75 text-hover-primary">
-          James Jones
+          <?php echo Yii::$app->user->identity->username ?>
         </a>
         <div class="text-muted mt-1">
           Application Developer
@@ -42,11 +44,19 @@
                     </g>
                   </svg>
                   <!--end::Svg Icon--></span> </span>
-              <span class="navi-text text-muted text-hover-primary">jm@softplus.com</span>
+              <span class="navi-text text-muted text-hover-primary"><?php echo Yii::$app->user->identity->email ?></span>
             </span>
           </a>
 
-          <a href="#" class="btn btn-sm btn-light-primary font-weight-bolder py-2 px-5">Sign Out</a>
+          <?php echo Html::beginForm(['/site/logout'], 'post')
+                . Html::submitButton(
+                    'Sign Out',
+                    ['class' => 'btn btn-sm btn-light-primary font-weight-bolder py-2 px-5']
+                )
+                . Html::endForm()
+            ?>
+
+          <!-- <a href="#" class="btn btn-sm btn-light-primary font-weight-bolder py-2 px-5">Sign Out</a> -->
         </div>
       </div>
     </div>
