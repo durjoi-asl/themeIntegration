@@ -30,6 +30,7 @@ class MetronicAsset extends AssetBundle
       'metronic/plugins/custom/gmaps/gmaps.js',
       'metronic/js/pages/widgets.js',
       'metronic/js/pages/custom/login/login-general.js',
+      '../../node_modules/html2canvas/dist/html2canvas.min.js'
     ];
     public $depends = [
         'yii\web\YiiAsset',
