@@ -6,6 +6,7 @@
 
 <div class="image_preview">
   <img id="screenshot_img" alt="">
+  
 </div>
 
 <!-- <div>
