@@ -23,9 +23,18 @@ class PdfController extends \yii\web\Controller
       // ]);
 
       $pdf = Yii::$app->pdf;
-      $pdf->content = "This is first Global Pdf";
-      
+      $mpdf = $pdf->api;
+      // $pdf->content = "This is first Global Pdf";
+      // $pdf->options = ['title' => 'First PDF Title'];
+      // $pdf->methods = ['SetHeader'=>['PDF Header'],
+      //       'SetFooter'=>['{PAGENO}'],];
 
-      return $pdf->render();
+      $mpdf->SetHeader("Pdf Header");
+      // $pdf->SetHeader = "Pdf Header";
+      $mpdf->WriteHtml("This is first Api Called");
+      $mpdf->SetFooter('{PAGENO}');
+
+
+      return $mpdf->output();
     }
 }
