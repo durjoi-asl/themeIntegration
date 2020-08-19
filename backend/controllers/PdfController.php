@@ -22,17 +22,35 @@ class PdfController extends \yii\web\Controller
       //   ]
       // ]);
 
+      $content = $this->renderPartial('_pdf');
+
       $pdf = Yii::$app->pdf;
+      $pdf->marginLeft = 20;
+      $pdf->marginRight = 15;
+      $pdf->marginTop = 48;
+      $pdf->marginBottom = 25;
+      $pdf->marginHeader = 10;
+      $pdf->marginFooter = 10;
+
       $mpdf = $pdf->api;
       // $pdf->content = "This is first Global Pdf";
       // $pdf->options = ['title' => 'First PDF Title'];
       // $pdf->methods = ['SetHeader'=>['PDF Header'],
       //       'SetFooter'=>['{PAGENO}'],];
 
-      $mpdf->SetHeader("Pdf Header");
+      $mpdf->SetProtection(array('print'));
+      $mpdf->SetTitle("Acme Trading Co. - Invoice");
+      $mpdf->SetAuthor("Acme Trading Co.");
+      $mpdf->SetWatermarkText("Paid");
+      $mpdf->showWatermarkText = true;
+      $mpdf->watermark_font = 'DejaVuSansCondensed';
+      $mpdf->watermarkTextAlpha = 0.1;
+      $mpdf->SetDisplayMode('fullpage');
+
+      // $mpdf->SetHeader("Pdf Header");
       // $pdf->SetHeader = "Pdf Header";
-      $mpdf->WriteHtml("This is first Api Called");
-      $mpdf->SetFooter('{PAGENO}');
+      $mpdf->WriteHtml($content);
+      // $mpdf->SetFooter('{PAGENO}');
 
 
       return $mpdf->output();
