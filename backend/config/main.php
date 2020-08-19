@@ -5,7 +5,7 @@ $params = array_merge(
     require __DIR__ . '/params.php',
     require __DIR__ . '/params-local.php'
 );
-
+use kartik\mpdf\Pdf;
 return [
     'id' => 'app-backend',
     'basePath' => dirname(__DIR__),
@@ -45,6 +45,12 @@ return [
         ],
         'assetManager' => [
           'appendTimestamp' => true,
+        ],
+        'pdf' => [
+          'class' => Pdf::classname(),
+          'format' => Pdf::FORMAT_A4,
+          'orientation' => Pdf::ORIENT_PORTRAIT,
+          'destination' => Pdf::DEST_BROWSER,
         ],
     ],
     'params' => $params,
